@@ -79,22 +79,3 @@ C'est ici qu'on implémente la distinction Tuteur/Élève et qu'on branche le ce
 
 [ ] Rendu du Quiz : Créer un composant qui prend le JSON de l'IA et l'affiche sous forme de formulaire interactif (QCM).
 
-📦 Phase 7 : Emballage & Livraison (Semaine 4 - Fin)
-Préparation des livrables pour l'envoi au professeur (Date limite : 10 Février 2026).
-
-7.1. Nettoyage & Documentation
-[ ] Code Cleaning : Supprimez les console.loginutiles dans React, les fichiers temporaires et les commentaires debug dans Django.
-
-[ ] Documentation Technique : Rédiger le document PDF grâce à l'architecture, l'algorithme d'adaptation et les invites utilisés.
-
-[ ] Guide d'Installation : Écrire un README.mdclair (Commandes de lancement runserver/ npm run dev, Identifiants Admin par défaut).
-
-7.2. Exportation de la base de données
-[ ] Fixtures de Démo : Créer un jeu de données via l'admin Django (1 Tuteur, 1 Élève, 1 Leçon PDF exemple) pour le testeur.
-
-[ ] Script SQL : Exporter la base de données MySQL finale (structure + données) en fichier .sql.
-
-7.3. Finalisation de l'Archive
-[ ] Zippage : Créer une archive Projet_L1tello_NomPrenom.zipcontent /backend(sans venv), /frontend(sans node_modules), la doc, le SQL et le README.
-
-[ ] Envoi : Vérifier le poids du fichier et envoyer à drissa.barro@yahoo.fr.
