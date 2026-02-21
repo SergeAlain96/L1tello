@@ -103,9 +103,17 @@ export default function AIChatBot({ leconId, leconTitre, notionActive }) {
           <span className="text-indigo-600"><Bot size={22} /></span>
           <div>
             <h2 className="text-sm font-semibold text-gray-700">Tuteur IA</h2>
-            <p className="text-xs text-gray-400">
-              {loading ? <span className="flex items-center gap-1"><Loader2 size={12} className="animate-spin" /> En train de réfléchir…</span> : <span className="flex items-center gap-1"><CircleDot size={12} className="text-emerald-500" /> Prêt à t'aider</span>}
-            </p>
+            <div className="text-xs text-gray-400">
+              {loading ? (
+                <span key="loading" className="flex items-center gap-1">
+                  <Loader2 size={12} className="animate-spin" /> En train de réfléchir…
+                </span>
+              ) : (
+                <span key="ready" className="flex items-center gap-1">
+                  <CircleDot size={12} className="text-emerald-500" /> Prêt à t'aider
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>
