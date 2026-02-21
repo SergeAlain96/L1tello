@@ -12,7 +12,30 @@ const fadeUp = (d = 0) => ({
 });
 
 export default function QuizPage() {
-  // ...existing code...
+
+  // Gestion du chargement
+  const [loading, setLoading] = useState(true);
+  const [exercices, setExercices] = useState([]);
+  const [finished, setFinished] = useState(false);
+  const [results, setResults] = useState([]);
+  const [current, setCurrent] = useState({});
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selected, setSelected] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [leconId, setLeconId] = useState(null);
+  const [leconTitre, setLeconTitre] = useState("");
+
+  useEffect(() => {
+    // Exemple de chargement asynchrone, à adapter selon la logique réelle
+    async function fetchData() {
+      setLoading(true);
+      // ... ici, charger les exercices, leçon, etc ...
+      // await ...
+      setLoading(false);
+    }
+    fetchData();
+  }, []);
 
   // Ajout du wrapper responsive
   return (
