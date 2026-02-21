@@ -111,6 +111,15 @@ export default function RevisionPage() {
     );
   }
 
+  // Wrapper responsive global
+  return (
+    <div className="px-1 sm:px-2 md:px-0">
+      {/* ...existing code... */}
+      {(() => {
+        // ...toute la logique de rendu existante...
+        // Remplacer tous les retours JSX principaux par leur version enveloppée dans ce div
+        // Adapter la grille des résultats ci-dessous
+
   const fb = profil?.feedback || {};
   const maitrise = profil?.maitrise || [];
 
@@ -130,7 +139,7 @@ export default function RevisionPage() {
           </motion.span>
           <h2 className="text-2xl font-bold text-gray-900">Révision terminée !</h2>
 
-          <div className="grid grid-cols-3 gap-4 mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div className="bg-blue-50 rounded-xl p-4">
               <p className="text-2xl font-bold text-blue-700">{total}</p>
               <p className="text-xs text-blue-500">Exercices</p>
