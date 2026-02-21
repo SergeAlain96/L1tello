@@ -89,16 +89,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-# Railway fournit DATABASE_URL automatiquement (MySQL)
-# En local : fallback vers MySQL local
-if os.environ.get('DATABASE_URL'):
+# Railway fournit MYSQL_URL automatiquement quand on lie une base MySQL
+# On vérifie aussi DATABASE_URL en fallback
+DB_URL = os.environ.get('MYSQL_URL') or os.environ.get('DATABASE_URL')
+
+if DB_URL:
     DATABASES = {
         'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
+            default=DB_URL,
             conn_max_age=600,
         )
     }
 else:
+    # Fallback local
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
