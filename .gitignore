@@ -52,3 +52,6 @@ Desktop.ini
 .vite/
 *.pdf
 package-lock.json
+*.zip
+*.docx
+codes Sources/
