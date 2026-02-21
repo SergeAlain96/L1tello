@@ -55,7 +55,8 @@ export default function LecteurPage() {
   const notions = lecon.notions || [];
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
+    <div className="px-1 sm:px-2 md:px-0">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3">
         <Link to="/lecons" className="text-gray-400 hover:text-gray-600 transition">
@@ -161,6 +162,7 @@ export default function LecteurPage() {
           </div>
         </>
       )}
-    </motion.div>
+      </motion.div>
+    </div>
   );
 }

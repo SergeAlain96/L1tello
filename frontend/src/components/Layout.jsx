@@ -9,11 +9,14 @@ import {
   LogOut, WifiOff, Loader2
 } from 'lucide-react';
 
+import { useState } from 'react';
+
 export default function Layout() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const { online, syncing, pendingCount, manualSync } = useOffline(API);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const isTuteur = user?.role === 'tuteur';
   const peutUploader = user?.peut_uploader;
@@ -53,7 +56,26 @@ export default function Layout() {
       </AnimatePresence>
 
       {/* ── Sidebar ── */}
-      <aside className={`w-72 fixed h-full flex flex-col bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 border-r border-white/[0.06] ${!online || syncing ? 'mt-10' : ''}`}>
+      {/* Mobile burger button */}
+      <button
+        className="md:hidden fixed top-4 left-4 z-50 bg-indigo-600 text-white p-2 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+        onClick={() => setSidebarOpen((v) => !v)}
+        aria-label="Ouvrir le menu"
+      >
+        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+      </button>
+
+      <aside
+        className={`
+          w-72 fixed h-full flex flex-col bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 border-r border-white/[0.06]
+          transition-transform duration-300 z-40
+          md:translate-x-0
+          ${!online || syncing ? 'mt-10' : ''}
+          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+          md:static md:block md:mt-0
+        `}
+        style={{ minWidth: '16rem' }}
+      >
         {/* Logo */}
         <div className="p-6 pb-4">
           <Link to="/dashboard" className="flex items-center gap-3">
@@ -83,7 +105,9 @@ export default function Layout() {
                     ${active
                       ? 'bg-indigo-500/15 text-indigo-300'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.05]'
-                    }`}>
+                    }`}
+                  onClick={() => setSidebarOpen(false)}
+                >
                   {active && (
                     <motion.div layoutId="sidebar-active"
                       className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-indigo-500 rounded-r-full shadow-lg shadow-indigo-500/50"
@@ -130,8 +154,12 @@ export default function Layout() {
       </aside>
 
       {/* ── Main Content ── */}
-      <main className={`flex-1 ml-72 bg-classroom min-h-screen ${!online || syncing ? 'mt-10' : ''}`}>
-        <div className="p-8">
+      <main
+        className={`flex-1 bg-classroom min-h-screen transition-all duration-300
+          md:ml-72 ${!online || syncing ? 'mt-10' : ''}
+        `}
+      >
+        <div className="p-2 sm:p-4 md:p-8">
           <motion.div key={location.pathname}
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>

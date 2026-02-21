@@ -297,7 +297,8 @@ export default function RevisionPage() {
   // Mode PROFIL (écran par défaut)
   // ════════════════════════════════════════
   return (
-    <motion.div className="space-y-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
+    <div className="px-1 sm:px-2 md:px-0">
+      <motion.div className="space-y-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -431,6 +432,7 @@ export default function RevisionPage() {
           </Link>
         </div>
       )}
-    </motion.div>
+      </motion.div>
+    </div>
   );
 }
