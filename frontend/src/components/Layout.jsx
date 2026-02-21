@@ -69,7 +69,8 @@ export default function Layout() {
         className={`
           w-72 h-full flex flex-col bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 border-r border-white/[0.06]
           transition-transform duration-300 z-40
-          fixed md:static md:block
+          md:relative md:translate-x-0 md:block
+          fixed top-0 left-0 md:static
           ${!online || syncing ? 'mt-10' : ''}
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
         `}
