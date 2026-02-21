@@ -127,7 +127,7 @@ export default function AIChatBot({ leconId, leconTitre, notionActive }) {
                   : 'bg-gray-100 text-gray-800 rounded-bl-md'
               }`}
             >
-              <p className="whitespace-pre-line leading-relaxed">{msg.content}</p>
+              <div className="whitespace-pre-line leading-relaxed">{msg.content}</div>
             </div>
           </motion.div>
         ))}
