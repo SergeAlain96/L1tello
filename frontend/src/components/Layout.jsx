@@ -38,7 +38,7 @@ export default function Layout() {
   const handleLogout = () => { logout(); navigate('/login'); };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex">
+    <div className="min-h-screen bg-slate-50 grid grid-cols-1 md:grid-cols-[18rem_1fr]">
       {/* ── Banners ── */}
       <AnimatePresence>
         {!online && (
@@ -67,14 +67,13 @@ export default function Layout() {
 
       <aside
         className={`
-          w-72 fixed h-full flex flex-col bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 border-r border-white/[0.06]
+          w-72 h-full flex flex-col bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 border-r border-white/[0.06]
           transition-transform duration-300 z-40
-          md:translate-x-0
+          fixed md:static md:block
           ${!online || syncing ? 'mt-10' : ''}
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
-          md:static md:block md:mt-0
         `}
-        style={{ minWidth: '16rem' }}
+        style={{ minWidth: '18rem' }}
       >
         {/* Logo */}
         <div className="p-6 pb-4">
@@ -155,11 +154,9 @@ export default function Layout() {
 
       {/* ── Main Content ── */}
       <main
-        className={`flex-1 bg-classroom min-h-screen transition-all duration-300
-          md:ml-72 ${!online || syncing ? 'mt-10' : ''}
-        `}
+        className={`w-full bg-classroom min-h-screen transition-all duration-300 ${!online || syncing ? 'mt-10' : ''}`}
       >
-        <div className="p-2 sm:p-4 md:p-8">
+        <div className="p-2 sm:p-4 md:p-8 max-w-7xl mx-auto">
           <motion.div key={location.pathname}
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>

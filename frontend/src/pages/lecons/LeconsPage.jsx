@@ -52,8 +52,7 @@ export default function LeconsPage() {
             <option value="">Toutes les matières</option>
             {matieres.map((m) => <option key={m.id} value={m.id}>{m.icone} {m.nom} ({m.nb_lecons})</option>)}
           </select>
-          <div className="px-1 sm:px-2 md:px-0">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+        </div>
       </motion.div>
 
       {leconsFiltrees.length === 0 ? (
@@ -77,9 +76,6 @@ export default function LeconsPage() {
                 </div>
                 <p className="text-sm text-gray-400 mt-2 font-medium">{l.matiere_nom}</p>
                 <div className="flex gap-4 mt-4 text-xs text-gray-500">
-              </motion.div>
-            </motion.div>
-          </div>
                   <span className="flex items-center gap-1.5 bg-gray-50 px-2.5 py-1 rounded-lg"><FileText size={12} /> {l.nb_notions} notions</span>
                   <span className="flex items-center gap-1.5 bg-gray-50 px-2.5 py-1 rounded-lg"><Puzzle size={12} /> {l.nb_exercices} exercices</span>
                 </div>
