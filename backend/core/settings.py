@@ -89,18 +89,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-# Railway injecte MYSQL_URL ou les variables individuelles MYSQL*
-DB_URL = os.environ.get('MYSQL_URL') or os.environ.get('DATABASE_URL')
-
-if DB_URL:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=DB_URL,
-            conn_max_age=600,
-        )
-    }
-elif os.environ.get('MYSQLHOST'):
-    # Variables individuelles Railway (MYSQLHOST, MYSQLUSER, etc.)
+# Railway : priorité aux variables individuelles (plus fiable que MYSQL_URL)
+if os.environ.get('MYSQLHOST'):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
