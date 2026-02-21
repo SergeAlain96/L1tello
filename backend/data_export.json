@@ -1,0 +1,801 @@
+[
+{
+  "model": "api.utilisateur",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$lKjkAvHBXMFmcp2dRqQ9n5$Z0vGsUzKk+ybNPOjGVWpoFOrhNxYVtkyFNTldbH5naw=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "tds",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-02-20T23:38:55.719Z",
+    "role": "eleve",
+    "niveau_scolaire": null,
+    "tuteur": null,
+    "date_naissance": null,
+    "avatar": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "api.utilisateur",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$d087fohlDeamKr2umjNrvW$2KGZdshz4Hwea7IxkhxIdQIeFUlr2epSF7bDJT6EvSM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Support_IT",
+    "first_name": "ALAIN",
+    "last_name": "KABORE",
+    "email": "alainkabore183@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-02-20T23:41:38.617Z",
+    "role": "eleve",
+    "niveau_scolaire": "4e",
+    "tuteur": null,
+    "date_naissance": null,
+    "avatar": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "api.matiere",
+  "pk": 1,
+  "fields": {
+    "nom": "POO",
+    "description": "",
+    "icone": "📚",
+    "created_at": "2026-02-20T23:49:05.138Z"
+  }
+},
+{
+  "model": "api.lecon",
+  "pk": 1,
+  "fields": {
+    "titre": "java",
+    "matiere": 1,
+    "niveau": "5e",
+    "fichier_pdf": "lecons/pdf/java_pdf.pdf",
+    "texte_extrait": "Cours de Java\nDr KINDO\n1\n\n1. Classes et Objets\npublic class Animal {\nString nom;\nint age;\npublic void crier() {\nSystem.out.println(\"Son générique\");\n}\n}\n// Une instance d'une classe.\nAnimal monChien = new Animal();\n\n\n2. Attributs et Méthodes\npublic void setAge(int nouvelAge) {\nage = nouvelAge;\n}\n3. Constructeurs\npublic Animal(String nom, int age) {\nthis.nom = nom;\nthis.age = age;\n}\n4. Encapsulation\n- Utilisez `private` pour cacher les données. Utilisez\ndes méthodes `public` pour accéder ou modifier les\ndonnées.\nprivate int age;\npublic int getAge() {\nreturn age;\n}\npublic void setAge(int age) {\nthis.age = age;\n}\n5. Héritage\npublic class Chien extends Animal {\npublic void crier() {\nSystem.out.println(\"Aboiement\");\n}\n}\n6. Polymorphisme\n- Le polymorphisme permet d'utiliser une méthode de plusieurs façons.\npublic void crier() {\nSystem.out.println(\"Son spécifique à l'animal\");\n}Rappel\n\n7. Interface\n- Une interface est un contrat pour les classes qui\nl'implémentent; elle ne contient que des méthodes abstraites.\npublic interface Mammifère {\nvoid respirer();\n}\npublic class Baleine implements Mammifère {\npublic void respirer() {\nSystem.out.println(\"Respire sous l'eau\");\n}\n}\n8. Classe Abstraite\n- Classes qui ne peuvent pas être instanciées. Elles sont utilisées pour\ncréer des classes dérivées.\npublic abstract class AnimalMarin {\nabstract void nager();\n}\n- Gestion des erreurs de manière contrôlée.\ntry {\n// Code qui peut générer une exception\n} catch (ExceptionType name) {\n// Bloc de traitement de l'exception\n} finally {\n// Bloc exécuté après le try/catch\n}\n9. Collections Framework\n- Structures de données telles que List, Set, Map, etc.\nArrayList<String> liste = new ArrayList<String>();\nliste.add(\"élément\");\n\nLes expressions Lambda en Java\nLes expre ssions Lambda ont été introduites dans Java 8 pour\npermettre la programmation fonctionnelle et simplifier la verbosité\ndes classes anonymes. Ils vous permettent d’écrire un code concis,\nde style fonctionnel, à la fois lisible et expressif.\nUne expression lambda est essentielleme nt une fonction\nanonyme, c’est-à-dire une fonction sans modificateur de nom et\nd’accès. Il est utilisé pour implémenter une interface fonctionnelle\n(une interface avec exactement une méthode abstraite).\nExemple d’interface fonctionnelle :\ninterface Greeting {\nvoid sayHello(String name);\n}\n4\n\nSyntaxe de l’expression Lambda\n(parameters) -> { body }\nParamètres : paramètres d’entrée pour la fonction lambda.\nJeton fléché () : Sépare la liste des paramètres et le corps.->\nBody : Le code à exécuter.\n5\n\nPourquoi utiliser des expressions lambda ?\n1.Concision : Réduis le code passe-partout pour les classes\nanonymes.\n2.Amélioration de la lisibilité : permet de se concentrer sur la\nlogique plutôt que sur la structure.\n3.Programmation fonctionnelle : améliore la flexibilité du code\navec des fonctions d’ordre supérieur.\n4.Intégration de l’API Stream : permet de travailler facilement\navec Java Streams pour des opérations de type fonctionnel.\n6\n\nExemples de syntaxe d’expression Lambda\nExemple 1 : Lambda sans paramètres\nRunnable runnable = () -> System. out.println( \"Hello, World!\" );\nrunnable.run();\nExemple 2 : Lambda avec un paramètre\nGreeting greeting = name -> System. out.println( \"Hello, \" + name +\n\"!\");\ngreeting.sayHello( \"Alice\" );\n7\n\nInterfaces fonctionnelles et expressions lambd\n1 . C o n s u m e r < T > : O p é r a t i o n q u i c o n s o m m e u n o b j e t\nM é t h o d e : v o i d a c c e p t ( T t )\nU t i l i s é p o u r d e s a c t i o n s s a n s r e t o u r ( e x : a f f i c h a g e , m o d i f i c a t i o n ) .\n/ / E x e m p l e 1 : A f f i c h e r u n é l é m e n t\nC o n s u m e r < S t r i n g > i m p r i m e r = s - > S y s t e m . o u t . p r i n t l n ( s ) ;\ni m p r i m e r . a c c e p t ( \" H e l l o L a m b d a ! \" ) ; / / A f f i c h e \" H e l l o L a m b d a ! \"\n/ / E x e m p l e 2 : M o d i f i e r u n o b j e t\nL i s t < I n t e g e r > n o m b r e s = n e w A r r a y L i s t < > ( A r r a y s . a s L i s t ( 1 , 2 , 3 ) ) ;\nC o n s u m e r < L i s t < I n t e g e r > > d o u b l e r = l i s t - > {\nf o r ( i n t i = 0 ; i < l i s t . s i z e ( ) ; i + + ) {\nl i s t . s e t ( i , l i s t . g e t ( i ) * 2 ) ;\n}\n} ;\nd o u b l e r . a c c e p t ( n o m b r e s ) ; / / n o m b r e s d e v i e n t [ 2 , 4 , 6 ]\n8\n\nExemples de syntaxe d’expression Lambda\nExemple 3 : Lambda avec plusieurs paramètres\nComparator<Integer> comparator = (a, b) -> a.compareTo(b);\nSystem. out.println(comparator.compare( 5, 3)); // Output: 1\nExemple 4 : Lambda avec un corps de bloc\nGreeting greeting = name -> {\nString message = \"Hello, \" + name + \"!\";\nSystem.out.println(message);\n};\ngreeting.sayHello( \"Bob\" );\n9\n\nInterfaces fonctionnelles et expressions lambd\nL e s e x p r e s s i o n s l a m b d a n e p e u v e n t ê t r e u t i l i s é e s q u ’ a v e c d e s i n t e r f a c e s\nf o n c t i o n n e l l e s . J a v a 8 a i n t r o d u i t p l u s i e u r s i n t e r f a c e s f o n c t i o n n e l l e s d a n s l e\np a c k a g e . E n v o i c i q u e l q u e s - u n s q u i s o n t c o u r a m m e n t u t i l i s é s : j a v a . u t i l . f u n c t i o n\n2. Prédicat\nReprésente une fonction booléenne d’un argument.\n/ / E x e m p l e 1 : V é r i f i e r s i u n n o m b r e e s t p a i r\nP r e d i c a t e < I n t e g e r > e s t P a i r = n - > n % 2 = = 0 ;\nS y s t e m . o u t . p r i n t l n ( e s t P a i r . t e s t ( 4 ) ) ; / / t r u e\n/ / E x e m p l e 2 : F i l t r e r d e s c h a î n e s d e p l u s d e 3 c a r a c t è r e s\nL i s t < S t r i n g > m o t s = A r r a y s . a s L i s t ( \" J a v a \" , \" R u s t \" , \" C + + \" , \" G o \" ) ;\nP r e d i c a t e < S t r i n g > l o n g u e u r M i n 3 = s - > s . l e n g t h ( ) > 3 ;\nL i s t < S t r i n g > r e s u l t = m o t s . s t r e a m ( )\n. f i l t e r ( l o n g u e u r M i n 3 )\n. t o L i s t ( ) ; / / [ \" J a v a \" , \" R u s t \" ]\n10\n\nExemple\n11import java .util.function .Function ;\nimport java .util.stream .Stream ;\npublic class FibonacciLambda {\npublic static void main (String [] args ) {\nint count = 10;\n// Solution 1: Avec Stream.iterate\nSystem .out.println (\"Solution 1:\" );\nStream .iterate (new int[]{0, 1}, t -> new int[]{t[1], t[0] + t[1]})\n.limit(count )\n.map(t -> t[0])\n.forEach (n -> System .out.print(n + \" \"));\n// Solution 2: Avec fonction récursive lambda\nSystem .out.println (\"\\n\\nSolution 2:\" );\nFunction <Integer , Integer > fib = n ->\n(n <= 1) ? n : fib.apply (n - 1) + fib.apply (n - 2);\nfor (int i = 0; i < count ; i++) {\nSystem .out.print(fib.apply (i) + \" \");\n}\n}\n}\n\nLes Interfaces en Java\nDéfinition\nUne interface est un contrat qui définit un ensemble de méthodes\nabstraites (sans implémentation) qu'une classe doit implémenter.\nSyntaxe\ni n t e r f a c e N o m I n t e r f a c e {\nt y p e R e t o u r n o m M e t h o d e ( p a r a m è t r e s ) ;\n}\nExemple\ni n t e r f a c e T r a n s p o r t {\nv o i d d e m a r r e r ( ) ;\nv o i d a r r e t e r ( ) ;\n}\n12\n\nLes Interfaces en Java\nCaractéristiques\nDepuis Java 8, les interfaces peuvent avoir des méthodes par défaut\n(default) et statiques\nUne classe peut implémenter plusieurs interfaces\nToutes les méthodes sont publiques par défaut\n13\n\nL'Héritage en Java\nPrincipe\nUne classe peut hériter d'une seule autre classe (héritage simple).\nSyntaxe\nc l a s s C l a s s e F i l l e e x t e n d s C l a s s e M e r e {\n/ / . . .\n} Exemple\n14C\nclass Voiture extends Vehicule {\nprivate int portes;\npublic void afficherDetails () {\nsuper.afficherMarque ();\nSystem.out.println(\"Portes: \" + portes);\n}\n}\nclass Vehicule {\nprotected String marque;\npublic void afficherMarque () {\nSystem.out.println(\"Marque: \" + marque);\n}\n}\n\nLes génériques\n1. Introduction aux génériques\nAvant les génériques (Java < 5), on utilisait souvent Object pour manipuler n'importe quel type :\nList list = new ArrayList ();\nlist.add(\"Hello\");\nString s = ( String ) list.get(0); // Casting nécessaire\nProblèmes :\nBesoin de casting ( (String) ).\nRisque de ClassCastException à l'exécution si le type est incorrect.\nAvec les génériques (Java ≥ 5), on peut faire :\nList<String > list = new ArrayList <>();\nlist.add(\"Hello\");\nString s = list.get( 0); // Aucun casting nécessaire\nLa généricité (ou génériques ) a été introduite en Java 5 pour :\nParamétrer les types (classes, interfaces, méthodes)\nÉviter les transtypages (cast)\nGarantir la sécurité de type à la compilation\n15\n\nSyntaxe de base\nDéclaration d'une classe générique\npublic class Boite<T> {\nprivate T contenu;\npublic void setContenu(T contenu) {\nthis.contenu = contenu;\n}\npublic T getContenu() {\nreturn contenu;\n}\n}\nUtilisation :\nBoite<String> boite1 = new Boite<>();\nboite1.setContenu(\"Bonjour\");\nBoite<Integer> boite2 = new Boite<>();\nboite2.setContenu(42);\n16\n\nTypes de paramètres génériques\n<T> : Type (Type)\n<E> : Element (pour collections)\n<K> : Key (clé dans une map)\n<V> : Value (valeur dans une map)\n<N> : Number\n<? extends T> : borne supérieure\n<? super T> : borne inférieure\n17\n\nExemple avec une méthode générique\npublic static <T> void afficher (T element ) {\nSystem.out.println(element);\n}\n// Utilisation\nafficher(\"Bonjour\"); // T = String\nafficher(123); // T = Integer\nafficher(new Date()); // T = Date\n18\n\nFonctionnement interne : Effacement de type (Type\nErasure)En Java, les types génériques n'existent qu'à la compilation . Après vérification, le\ncompilateur remplace tous les types génériques par leur super-type commun (Object).\n// Code source\npublic class Box<T> {\nprivate T item;\n}\n// Après compilation\npublic class Box {\nprivate Object item;\n}\n19\n\nGénéricité multiple\nLa généricité multiple permet de créer des classes ou\ninterfaces qui prennent en charge plusieurs types\ngénériques . Cela est particulièrement utile lorsque vous\nsouhaitez modéliser des structures de données\ncomplexes, comme une paire clé-valeur (Map<K,V>) ou\nun conteneur avec plusieurs attributs hétérogènes.\n20\n\nGénéricité multiple\npublic class Entry<K, V> {\nprivate final K key;\nprivate final V value;\npublic Entry(K key, V value) {\nthis.key = key;\nthis.value = value;\n}\npublic K getKey() {\nreturn key;\n}\npublic V getValue() {\nreturn value;\n}\n@Override\npublic String toString() {\nreturn \"(\" + key + \",\" + value +\n\")\";\n}\n}\n21\nUtilisation\nEntry<String, String> grade = new Entry<>(\"Albert\", \"B\");\nEntry<String, Integer> mark = new Entry<>(\"Albert\", 16);\nSystem.out.println(\"grade:\" + grade);\nSystem.out.println(\"mark:\" + mark);\nRésultat\ngrade:(Albert,B)\nmark:(Albert,16)\n\nGénéricité restreinte\n22\nLe mot-clé extends permet de restreindre le type générique à une\nclasse ou une interface donnée, ainsi que tous ses sous-types. Cela\ngarantit que le type générique T doit hériter d'une classe ou\nimplémenter une interface spécifique.\n\nExemples avancés\n23\n1. Clé-valeur dans une liste :\n2. Utilisation dans une collection imbriquée :\n\nJokers (?)\nLes wildcards permettent de travailler avec des types inconnus.\n? – Type inconnu\nList<?> listeInconnue = new ArrayList <String >();\nEntry<?, ?> randomNotation = new Entry<String, Double>(\"Albert\", 0.7);\n24\n\nJokers (?)\n<? extends T> – Borne supérieure\nPermet de traiter des sous-types de T.\n25\n\nJokers (?)\n26\n<? super T> – Borne inférieure\nPermet d’ajouter des objets de type T de ses sous-types\nde T.\n\nCollections Java et génériques\nJava fournit une hiérarchie riche de structures de données génériques\nInterface Collection<T>\nList<T> : Liste ordonnée\nSet<T> : Ensemble (sans doublons)\nQueue<T> : File FIFO ou LIFO\nInterface Map<K,V>\nHashMap<K,V> : Accès rapide, pas d'ordre garanti\nTreeMap<K,V> : Trié selon l'ordre naturel\nLinkedHashMap<K,V> : Ordre d'insertion préservé\n27\n\nStream API\nLa Stream API permet de traiter les collections de manière déclarative et fonctionnelle\n.\n28\n\nCollections, Génériques et Comparateurs\n1. Collections Framework (Hiérarchie Principale)\n29\nInterface Description Implémentations Courantes Ordre Doublons\nList Séquence ordonnée ArrayList, LinkedList Insertion ✅ Oui\nSet Collection sans doublons HashSet, LinkedHashSet, TreeSetNon garanti\n(sauf LinkedHashSet/TreeSet)❌ Non\nQueue Gestion FIFO/LIFO LinkedList, PriorityQueue Dépend ✅ Oui\nMapPaires clé-valeur (clés\nuniques)HashMap, LinkedHashMap, TreeMapNon garanti\n(sauf LinkedHashMap/TreeMap)Clés ❌,\nValeurs ✅\n\nHiérarchie de linfrastructure de collecte en Java\nInterfaces principales\n1.Iterable (racine de la hiérarchie)\n1.Collection (interface de base pour la plupart des collections)\n1.List (collections ordonnées, acceptant les doublons)\n2.Set (collections non ordonnées, sans doublons)\n1.SortedSet (ensemble trié)\n2.NavigableSet (extension de SortedSet)\n3.Queue (structures FIFO ou prioritaires)\n1.Deque (queues double-ends)\n2.Map (collections clé-valeur, ne fait pas partie de Collection)\n1.SortedMap (map triée par clés)\n2.NavigableMap (extension de SortedMap)\n30\n\nHiérarchie complète des interfaces\n31\n\nMéthodes de l’interface de collecte\nMethode Description\nadd(Object) Cette méthode est utilisée pour ajouter un objet à la collection.\naddAll(Collection c) Cette méthode ajoute tous les éléments de la collection donnée à cette collection.\nclear() Cette méthode supprime tous les éléments de cette collection.\ncontains(Object o) Cette méthode renvoie true si la collection contient l’élément spécifié.\ncontainsAll(Collection\nc)Cette méthode renvoie true si la collection contient tous les éléments de la collection donnée.\nequals(Object o) Cette méthode compare l’objet spécifié avec cette collection pour l’égalité.\nhashCode() Cette méthode est utilisée pour retourner la valeur du code de hachage de cette collection.\nisEmpty() Cette méthode renvoie true si cette collection ne contient aucun élément.\niterator() Cette méthode renvoie un itérateur sur les éléments de cette collection.\nparallelStream() Cette méthode retourne un flux parallèle avec cette collection comme source.\nremove(Object o)Cette méthode est utilisée pour supprimer l’objet donné de la collection. S’il existe des valeurs en double, cette méthode\nsupprime la première occurrence de l’objet.\nremoveAll(Collection\nc)Cette méthode est utilisée pour supprimer de la collection tous les objets mentionnés dans la collection donnée.\nremoveIf(Predicate\nfilter)Cette méthode est utilisée pour supprimer tous les éléments de cette collection qui satisfont le prédicat donné.\nretainAll(Collection c)Cette méthode est utilisée pour conserver uniquement les éléments de cette collection qui sont contenus dans la\ncollection spécifiée.\nsize() Cette méthode est utilisée pour renvoyer le nombre d’éléments de la collection.\nspliterator() Cette méthode est utilisée pour créer un séparateur sur les éléments de cette collection.\nstream() Cette méthode est utilisée pour retourner un flux séquentiel avec cette collection comme source.\ntoArray() Cette méthode est utilisée pour retourner un tableau contenant tous les éléments de cette collection.\n32\n\nInterfaces qui étendent l’interface des collections Java\n33Le framework de collection contient plusieurs interfaces où chaque\ninterface est utilisée pour stocker un type spécifique de données. Voici\nles interfaces présentes dans le framework.\n\nInterfaces iterable\n34Il s’agit de l’interface racine de l’ensemble du cadre de collecte. L’interface de\ncollection étend l’interface itérable. Par conséquent, toutes les interfaces et\nclasses implémentent cette interface. La fonctionnalité principale de cette\ninterface est de fournir un itérateur pour les collections. Par conséquent, cette\ninterface ne contient qu’une seule méthode abstraite qui est l’itérateur. Il\nrenvoie la fonction\nIterator iterator();\nexemple\nList<String> fruits = List.of(\"Pomme\", \"Banane\", \"Orange\");\nIterator<String> it = fruits.iterator();\nwhile(it.hasNext()) {\nSystem.out.println(it.next());\n}\n\nInterface Collection (hérite de Iterable)\n35Cette interfa ce étend l’interface itérable et est implémentée par toutes les\nclasses de l’infrastructure de collection. Cette interface contient toutes\nles méthodes de base de chaque collection, comme l’ajout des données\ndans la collection, la suppression des données, l’effacement des données,\netc. Toutes ces méthodes sont implémentées dans cette interface car\nelles sont implémentées par toutes les classes, quel que soit leur style\nd’implémentation. De plus, le fait d’avoir ces méthodes dans cette\ninterface garantit que les noms des méthodes sont universels pour toutes\nles collectio ns. Par conséquent, en bref, nous pouvons dire que cette\ninterface construit une base sur laquelle les classes de collection sont\nimplémentées.\n\nInterface Collection (hérite de Iterable)\n36Rôle : Opérations de base pour toutes les collections.\nMéthodes principales :\nadd(), remove(), clear()\nsize(), isEmpty()\ncontains(), toArray()\nExemple\nCollection <Integer> nombres = new ArrayList <>();\nnombres .add(10);\nnombres .add(20);\nSystem.out.println(\"Taille: \" + nombres .size()); // 2\nnombres .remove(10);\nSystem.out.println(\"Contient 20? \" + nombres .contains(20)); // true\n\nInterface List (hérite de Collection)\n37Il s’agit d’une interface enfant de l’interface de collection. Cette interface est dédiée aux données\nde type liste dans laquelle on peut stocker toutes les collections ordonnées des objets. Cela\npermet également d’y inclure des données en double. Cette interface de liste est implémentée par\ndiverses classes telles que ArrayList, Vector, Stack, etc. Comme toutes les sous-classes\nimplémentent la liste, nous pouvons instancier un objet list avec n’importe laquelle de ces\nclasses.\nCaractéristiques :\nCollections ordonnées\nAccepte les doublons\nAccès par indexExemple\nList <String > villes = new ArrayList <>();\nvilles .add (\"Paris\" );\nvilles .add (\"Lyon\" );\nvilles .add (\"Paris\" ); // Doublon autorisé\n// Accès par index\nSystem .out .println (villes .get (1)); // Lyon\n// Parcours avec forEach (depuis Iterable)\nvilles .forEach (System .out::println );\n\nAutres interfaces importantes\n38Interface Set (hérite de Collection)\nSet < String > uniques = new HashSet <>();\nuniques .add (\"A\" );\nuniques .add (\"B\" );\nuniques .add (\"A\" ); // Ignoré System .out .println (uniques ); // [A, B]\nInterface Queue (hérite de Collection)\nQueue < String > file = new LinkedList <>();\nfile .offer (\"Client1\" );\nfile .offer (\"Client2\" );\nSystem .out .println (file .poll ()); // Client1\n\nInterface Map (indépendante)\n39Une Map est une structure de données qui prend en charge la paire clé-valeur\npour le mappage des données. Cette interface ne prend pas en charge les clés\nen double, car la même clé ne peut pas avoir plusieurs mappages, mais elle\nautorise les valeurs en double dans différentes clés. Une Map est utile s’il y a\ndes données et que l’on souhaite effectuer des opérations sur la base de la clé.\nCette interface Map est implémentée par diverses classes telles que HashMap,\nTreeMap, etc. Comme toutes les sous-classes implémentent Map, nous\npouvons instancier un objet Map avec n'importe laquelle de ces classes.\nMap<Integer, String> map = new HashMap<>();\nmap.put(1, \"Un\");\nmap.put(2, \"Deux\");\nSystem.out.println(map.get(1)); // Un x\n\nHashMap.\n40HashMap fournit l’implémentation de base de l’interface Map de\nJava. Il stocke les données par paires (clé, valeur). Pour accéder à\nune valeur dans une HashMap, il faut connaître sa clé. HashMap\nutilise une technique appelée Hashing. Le hachage est une\ntechnique de conversion d’une grande chaîne en une petite\nchaîne qui représente la même chaîne afin que les opérations\nd’indexation et de recherche soient plus rapides. HashSet utilise\négalement HashMap en interne.\n\nExemple\n41import java.util.*;\nimport java.util.stream.*;\npublic class CollectionMethodsDemo {\npublic static void main( String[] args) {\n// Création et ajouts\nCollection < String> coll = new ArrayList <>();\ncoll.add(\"Java\");\ncoll.addAll( List.of(\"Python\" , \"C++\"));\n// Affichage\nSystem.out.println(\"Taille: \" + coll.size()); // 3\nSystem.out.println(\"Contient Java? \" + coll.contains(\"Java\")); // true\n// Suppression\ncoll.remove(\"C++\"); coll.removeIf (s -> s.startsWith (\"P\"));\nSystem.out.println(coll); // [Java]\n// Conversion\nObject[] arr = coll.toArray();\nSystem.out.println( Arrays.toString(arr)); // [Java]\n}\n}\n\nThreads\n42Un thread est une unité d'exécution au sein d’un programme. Il\npermet à un programme de s'exécuter simultanément sur\nplusieurs tâches (ou sous-tâches). Cela rend l'application plus\nréactive et efficace, notamment dans les cas où certaines\nopérations prennent du temps (ex : lecture/écriture sur disque,\nrequêtes réseau).\nJava offre nativement le support des threads via la classe Thread\net l'interface Runnable .\n\nCréer des Threads\nil existe deux façons de créer un thread en Java\nMéthode 1 : En étendant la classe Thread\n:\nPoints importants :\nLa méthode run() contient le code à exécuter.\nPour démarrer le thread, on appelle start() (et non\npas run() ).\ngetName() renvoie le nom du thread.\n\nCréer des Threads\n:\nPoints importants :\nOn crée une instance de Runnable , puis on la passe à un objet Thread .\nPermet de respecter le principe d’héritage multiple (puisque Java ne permet pas d’étendre plusieurs\nclasses).\nUtile pour séparer la logique de traitement de la gestion du thread.Méthode 2 : En implémentant l'interface Runnable\n\nExemple Introductif : Plusieurs Threads Simultanés\nRésultat attendu :\nLes messages s'afficheront en parallèle selon l’ordonnancement du système, par exemple :\n1 bonjour bonsoir bonjour bonsoir bonjour bonjour ...\n\nInterruptiond’unThread\nComment interrompre un thread ?\nOn utilise la méthode interrupt() pour signaler à un thread qu’il doit se terminer.\nExemple :\n\nThreads Démons\nUn thread démon est un thread qui ne bloque pas la fin du programme. Si tous les threads restants sont\ndes démons, le programme se termine automatiquement.\n\nCycle de vie d'un thread en Java :\n48\n\nCoordination entre Threads\n49Lorsque plusieurs threads accèdent à une ressource partagée, il faut synchroniser leur\naccès pour éviter des comportements incohérents.\nMéthodes Synchronisées\n\nCoordination entre Threads\n50\nUtilisation de wait() et\nnotifyAll()\n\nÉtats d’un Thread\nÉtat Description\nNewLe thread a été créé mais n’a pas encore été lancé\n(start()non appelé).\nRunnable Le thread est prêt à être exécuté.\nRunning Le thread est en cours d’exécution.\nBlocked Le thread attend un verrou ou une ressource.\nWaiting Le thread attend activement une notification (wait()).\nTimed Waiting Le thread attend pendant un délai (sleep()).\nTerminated Le thread a terminé son exécution.\n\nles différents états du cycle de vie d'un thread en Java :\n521.New : Lorsqu'un thread vient d'être créé.\n1.Le thread existe mais n'est pas encore démarré\n2.Runnable : Lorsque la méthode start() est appelée sur le thread et\nqu'il est pris en charge par l'ordonnanceur de threads (thread\nscheduler).\n1.Cas A : Peut devenir un thread en cours d'exécution\n2.Cas B : Peut ne pas devenir un thread en cours d'exécution\n3.Running : Lorsque le Cas A se produit, c'est-à-dire que\nl'ordonnanceur a sélectionné ce thread pour passer de l'état\nexécutable à l'état d'exécution.\n4.Blocked : Lorsque le Cas B se produit, c'est-à-dire que\nl'ordonnanceur a décidé de ne pas permettre au thread de passer\nde l'état exécutable à l'état d'exécution.\n5.Terminated: Lorsque la méthode run() se termine ou que la\nméthode stop() est appelée.\n1.Le thread a fini son exécution ou a été arrêté\n\nLe multitâche se fait de deux manières :\n531.Multitraitemen t : Le m ul titâche basé sur les processus est un\nproc essus lourd qui occupe différents espaces d’adressage en\nm ém oire. Par conséquent, lors du passage d’un processus à\nun a ut re, il faudra un certain tem ps, m êm e s’il est très petit, ce\nqui entraînera un décalage dû au changem ent. Cela se produit\nlor sque les registres seront chargés dans les cartes de\nm ém oire et que la liste sera m ise à jour.\n2.Multith reading : Le m ul titâche basé sur les threads est un\nproc essus léger qui occupe le m êm e espace d’adressage. Par\nconsé que nt, le coût de la com m unication sera très faible.",
+    "auteur": [
+      "tds"
+    ],
+    "created_at": "2026-02-20T23:49:05.151Z",
+    "updated_at": "2026-02-20T23:49:05.151Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 1,
+  "fields": {
+    "lecon": 1,
+    "titre": "1. Classes et Objets",
+    "contenu": "public class Animal {\nString nom;\nint age;\npublic void crier() {\nSystem.out.println(\"Son générique\");\n}\n}\n// Une instance d'une classe.\nAnimal monChien = new Animal();",
+    "ordre": 2,
+    "created_at": "2026-02-20T23:49:05.165Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 2,
+  "fields": {
+    "lecon": 1,
+    "titre": "2. Attributs et Méthodes",
+    "contenu": "public void setAge(int nouvelAge) {\nage = nouvelAge;\n}",
+    "ordre": 3,
+    "created_at": "2026-02-20T23:49:05.168Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 3,
+  "fields": {
+    "lecon": 1,
+    "titre": "3. Constructeurs",
+    "contenu": "public Animal(String nom, int age) {\nthis.nom = nom;\nthis.age = age;\n}",
+    "ordre": 4,
+    "created_at": "2026-02-20T23:49:05.171Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 4,
+  "fields": {
+    "lecon": 1,
+    "titre": "4. Encapsulation",
+    "contenu": "- Utilisez `private` pour cacher les données. Utilisez\ndes méthodes `public` pour accéder ou modifier les\ndonnées.\nprivate int age;\npublic int getAge() {\nreturn age;\n}\npublic void setAge(int age) {\nthis.age = age;\n}",
+    "ordre": 5,
+    "created_at": "2026-02-20T23:49:05.174Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 5,
+  "fields": {
+    "lecon": 1,
+    "titre": "5. Héritage",
+    "contenu": "public class Chien extends Animal {\npublic void crier() {\nSystem.out.println(\"Aboiement\");\n}\n}",
+    "ordre": 6,
+    "created_at": "2026-02-20T23:49:05.177Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 6,
+  "fields": {
+    "lecon": 1,
+    "titre": "6. Polymorphisme",
+    "contenu": "- Le polymorphisme permet d'utiliser une méthode de plusieurs façons.\npublic void crier() {\nSystem.out.println(\"Son spécifique à l'animal\");\n}Rappel",
+    "ordre": 7,
+    "created_at": "2026-02-20T23:49:05.181Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 7,
+  "fields": {
+    "lecon": 1,
+    "titre": "7. Interface",
+    "contenu": "- Une interface est un contrat pour les classes qui\nl'implémentent; elle ne contient que des méthodes abstraites.\npublic interface Mammifère {\nvoid respirer();\n}\npublic class Baleine implements Mammifère {\npublic void respirer() {\nSystem.out.println(\"Respire sous l'eau\");\n}\n}",
+    "ordre": 8,
+    "created_at": "2026-02-20T23:49:05.184Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 8,
+  "fields": {
+    "lecon": 1,
+    "titre": "8. Classe Abstraite",
+    "contenu": "- Classes qui ne peuvent pas être instanciées. Elles sont utilisées pour\ncréer des classes dérivées.\npublic abstract class AnimalMarin {\nabstract void nager();\n}\n- Gestion des erreurs de manière contrôlée.\ntry {\n// Code qui peut générer une exception\n} catch (ExceptionType name) {\n// Bloc de traitement de l'exception\n} finally {\n// Bloc exécuté après le try/catch\n}",
+    "ordre": 9,
+    "created_at": "2026-02-20T23:49:05.188Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 9,
+  "fields": {
+    "lecon": 1,
+    "titre": "9. Collections Framework",
+    "contenu": "- Structures de données telles que List, Set, Map, etc.\nArrayList<String> liste = new ArrayList<String>();\nliste.add(\"élément\");",
+    "ordre": 10,
+    "created_at": "2026-02-20T23:49:05.192Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 10,
+  "fields": {
+    "lecon": 1,
+    "titre": "Les expressions Lambda en Java",
+    "contenu": "Les expre ssions Lambda ont été introduites dans Java 8 pour",
+    "ordre": 11,
+    "created_at": "2026-02-20T23:49:05.195Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 11,
+  "fields": {
+    "lecon": 1,
+    "titre": "permettre la programmation fonctionnelle et simplifier la verbosité",
+    "contenu": "des classes anonymes. Ils vous permettent d’écrire un code concis,\nde style fonctionnel, à la fois lisible et expressif.",
+    "ordre": 12,
+    "created_at": "2026-02-20T23:49:05.199Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 12,
+  "fields": {
+    "lecon": 1,
+    "titre": "Une expression lambda est essentielleme nt une fonction",
+    "contenu": "anonyme, c’est-à-dire une fonction sans modificateur de nom et\nd’accès. Il est utilisé pour implémenter une interface fonctionnelle\n(une interface avec exactement une méthode abstraite).\nExemple d’interface fonctionnelle :\ninterface Greeting {\nvoid sayHello(String name);\n}\n4\n\nSyntaxe de l’expression Lambda\n(parameters) -> { body }\nParamètres : paramètres d’entrée pour la fonction lambda.\nJeton fléché () : Sépare la liste des paramètres et le corps.->\nBody : Le code à exécuter.\n5\n\nPourquoi utiliser des expressions lambda ?",
+    "ordre": 13,
+    "created_at": "2026-02-20T23:49:05.202Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 13,
+  "fields": {
+    "lecon": 1,
+    "titre": "4.Intégration de l’API Stream : permet de travailler facilement",
+    "contenu": "avec Java Streams pour des opérations de type fonctionnel.\n6\n\nExemples de syntaxe d’expression Lambda\nExemple 1 : Lambda sans paramètres\nRunnable runnable = () -> System. out.println( \"Hello, World!\" );\nrunnable.run();\nExemple 2 : Lambda avec un paramètre\nGreeting greeting = name -> System. out.println( \"Hello, \" + name +\n\"!\");\ngreeting.sayHello( \"Alice\" );\n7",
+    "ordre": 17,
+    "created_at": "2026-02-20T23:49:05.205Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 14,
+  "fields": {
+    "lecon": 1,
+    "titre": "Interfaces fonctionnelles et expressions lambd",
+    "contenu": "1 . C o n s u m e r < T > : O p é r a t i o n q u i c o n s o m m e u n o b j e t\nM é t h o d e : v o i d a c c e p t ( T t )\nU t i l i s é p o u r d e s a c t i o n s s a n s r e t o u r ( e x : a f f i c h a g e , m o d i f i c a t i o n ) .\n/ / E x e m p l e 1 : A f f i c h e r u n é l é m e n t\nC o n s u m e r < S t r i n g > i m p r i m e r = s - > S y s t e m . o u t . p r i n t l n ( s ) ;\ni m p r i m e r . a c c e p t ( \" H e l l o L a m b d a ! \" ) ; / / A f f i c h e \" H e l l o L a m b d a ! \"\n/ / E x e m p l e 2 : M o d i f i e r u n o b j e t\nL i s t < I n t e g e r > n o m b r e s = n e w A r r a y L i s t < > ( A r r a y s . a s L i s t ( 1 , 2 , 3 ) ) ;\nC o n s u m e r < L i s t < I n t e g e r > > d o u b l e r = l i s t - > {\nf o r ( i n t i = 0 ; i < l i s t . s i z e ( ) ; i + + ) {\nl i s t . s e t ( i , l i s t . g e t ( i ) * 2 ) ;\n}\n} ;\nd o u b l e r . a c c e p t ( n o m b r e s ) ; / / n o m b r e s d e v i e n t [ 2 , 4 , 6 ]\n8\n\nExemples de syntaxe d’expression Lambda\nExemple 3 : Lambda avec plusieurs paramètres\nComparator<Integer> comparator = (a, b) -> a.compareTo(b);\nSystem. out.println(comparator.compare( 5, 3)); // Output: 1\nExemple 4 : Lambda avec un corps de bloc\nGreeting greeting = name -> {\nString message = \"Hello, \" + name + \"!\";\nSystem.out.println(message);\n};\ngreeting.sayHello( \"Bob\" );\n9",
+    "ordre": 18,
+    "created_at": "2026-02-20T23:49:05.209Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 15,
+  "fields": {
+    "lecon": 1,
+    "titre": "Interfaces fonctionnelles et expressions lambd",
+    "contenu": "L e s e x p r e s s i o n s l a m b d a n e p e u v e n t ê t r e u t i l i s é e s q u ’ a v e c d e s i n t e r f a c e s\nf o n c t i o n n e l l e s . J a v a 8 a i n t r o d u i t p l u s i e u r s i n t e r f a c e s f o n c t i o n n e l l e s d a n s l e\np a c k a g e . E n v o i c i q u e l q u e s - u n s q u i s o n t c o u r a m m e n t u t i l i s é s : j a v a . u t i l . f u n c t i o n",
+    "ordre": 19,
+    "created_at": "2026-02-20T23:49:05.212Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 16,
+  "fields": {
+    "lecon": 1,
+    "titre": "2. Prédicat",
+    "contenu": "Représente une fonction booléenne d’un argument.\n/ / E x e m p l e 1 : V é r i f i e r s i u n n o m b r e e s t p a i r\nP r e d i c a t e < I n t e g e r > e s t P a i r = n - > n % 2 = = 0 ;\nS y s t e m . o u t . p r i n t l n ( e s t P a i r . t e s t ( 4 ) ) ; / / t r u e\n/ / E x e m p l e 2 : F i l t r e r d e s c h a î n e s d e p l u s d e 3 c a r a c t è r e s\nL i s t < S t r i n g > m o t s = A r r a y s . a s L i s t ( \" J a v a \" , \" R u s t \" , \" C + + \" , \" G o \" ) ;\nP r e d i c a t e < S t r i n g > l o n g u e u r M i n 3 = s - > s . l e n g t h ( ) > 3 ;\nL i s t < S t r i n g > r e s u l t = m o t s . s t r e a m ( )\n. f i l t e r ( l o n g u e u r M i n 3 )\n. t o L i s t ( ) ; / / [ \" J a v a \" , \" R u s t \" ]\n10\n\nExemple\n11import java .util.function .Function ;\nimport java .util.stream .Stream ;\npublic class FibonacciLambda {\npublic static void main (String [] args ) {\nint count = 10;\n// Solution 1: Avec Stream.iterate\nSystem .out.println (\"Solution 1:\" );\nStream .iterate (new int[]{0, 1}, t -> new int[]{t[1], t[0] + t[1]})\n.limit(count )\n.map(t -> t[0])\n.forEach (n -> System .out.print(n + \" \"));\n// Solution 2: Avec fonction récursive lambda\nSystem .out.println (\"\\n\\nSolution 2:\" );\nFunction <Integer , Integer > fib = n ->\n(n <= 1) ? n : fib.apply (n - 1) + fib.apply (n - 2);\nfor (int i = 0; i < count ; i++) {\nSystem .out.print(fib.apply (i) + \" \");\n}\n}\n}",
+    "ordre": 20,
+    "created_at": "2026-02-20T23:49:05.216Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 17,
+  "fields": {
+    "lecon": 1,
+    "titre": "Une interface est un contrat qui définit un ensemble de méthodes",
+    "contenu": "abstraites (sans implémentation) qu'une classe doit implémenter.\nSyntaxe\ni n t e r f a c e N o m I n t e r f a c e {\nt y p e R e t o u r n o m M e t h o d e ( p a r a m è t r e s ) ;\n}\nExemple\ni n t e r f a c e T r a n s p o r t {\nv o i d d e m a r r e r ( ) ;\nv o i d a r r e t e r ( ) ;\n}\n12",
+    "ordre": 21,
+    "created_at": "2026-02-20T23:49:05.220Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 18,
+  "fields": {
+    "lecon": 1,
+    "titre": "Caractéristiques",
+    "contenu": "Depuis Java 8, les interfaces peuvent avoir des méthodes par défaut\n(default) et statiques",
+    "ordre": 22,
+    "created_at": "2026-02-20T23:49:05.223Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 19,
+  "fields": {
+    "lecon": 1,
+    "titre": "Principe",
+    "contenu": "Une classe peut hériter d'une seule autre classe (héritage simple).\nSyntaxe\nc l a s s C l a s s e F i l l e e x t e n d s C l a s s e M e r e {\n/ / . . .\n} Exemple\n14C\nclass Voiture extends Vehicule {\nprivate int portes;\npublic void afficherDetails () {\nsuper.afficherMarque ();\nSystem.out.println(\"Portes: \" + portes);\n}\n}\nclass Vehicule {\nprotected String marque;\npublic void afficherMarque () {\nSystem.out.println(\"Marque: \" + marque);\n}\n}",
+    "ordre": 24,
+    "created_at": "2026-02-20T23:49:05.227Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 20,
+  "fields": {
+    "lecon": 1,
+    "titre": "1. Introduction aux génériques",
+    "contenu": "Avant les génériques (Java < 5), on utilisait souvent Object pour manipuler n'importe quel type :\nList list = new ArrayList ();\nlist.add(\"Hello\");\nString s = ( String ) list.get(0); // Casting nécessaire\nProblèmes :\nBesoin de casting ( (String) ).\nRisque de ClassCastException à l'exécution si le type est incorrect.\nAvec les génériques (Java ≥ 5), on peut faire :\nList<String > list = new ArrayList <>();\nlist.add(\"Hello\");\nString s = list.get( 0); // Aucun casting nécessaire\nLa généricité (ou génériques ) a été introduite en Java 5 pour :\nParamétrer les types (classes, interfaces, méthodes)\nÉviter les transtypages (cast)",
+    "ordre": 25,
+    "created_at": "2026-02-20T23:49:05.231Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 21,
+  "fields": {
+    "lecon": 1,
+    "titre": "Syntaxe de base",
+    "contenu": "Déclaration d'une classe générique\npublic class Boite<T> {\nprivate T contenu;\npublic void setContenu(T contenu) {\nthis.contenu = contenu;\n}\npublic T getContenu() {\nreturn contenu;\n}\n}\nUtilisation :\nBoite<String> boite1 = new Boite<>();\nboite1.setContenu(\"Bonjour\");\nBoite<Integer> boite2 = new Boite<>();\nboite2.setContenu(42);\n16",
+    "ordre": 27,
+    "created_at": "2026-02-20T23:49:05.234Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 22,
+  "fields": {
+    "lecon": 1,
+    "titre": "Types de paramètres génériques",
+    "contenu": "<T> : Type (Type)\n<E> : Element (pour collections)\n<K> : Key (clé dans une map)\n<V> : Value (valeur dans une map)\n<N> : Number\n<? extends T> : borne supérieure\n<? super T> : borne inférieure\n17",
+    "ordre": 28,
+    "created_at": "2026-02-20T23:49:05.236Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 23,
+  "fields": {
+    "lecon": 1,
+    "titre": "Exemple avec une méthode générique",
+    "contenu": "public static <T> void afficher (T element ) {\nSystem.out.println(element);\n}\n// Utilisation\nafficher(\"Bonjour\"); // T = String\nafficher(123); // T = Integer\nafficher(new Date()); // T = Date\n18\n\nFonctionnement interne : Effacement de type (Type\nErasure)En Java, les types génériques n'existent qu'à la compilation . Après vérification, le\ncompilateur remplace tous les types génériques par leur super-type commun (Object).\n// Code source\npublic class Box<T> {\nprivate T item;\n}\n// Après compilation\npublic class Box {\nprivate Object item;\n}\n19",
+    "ordre": 29,
+    "created_at": "2026-02-20T23:49:05.239Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 24,
+  "fields": {
+    "lecon": 1,
+    "titre": "interfaces qui prennent en charge plusieurs types",
+    "contenu": "génériques . Cela est particulièrement utile lorsque vous",
+    "ordre": 30,
+    "created_at": "2026-02-20T23:49:05.241Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 25,
+  "fields": {
+    "lecon": 1,
+    "titre": "souhaitez modéliser des structures de données",
+    "contenu": "complexes, comme une paire clé-valeur (Map<K,V>) ou\nun conteneur avec plusieurs attributs hétérogènes.\n20",
+    "ordre": 31,
+    "created_at": "2026-02-20T23:49:05.244Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 26,
+  "fields": {
+    "lecon": 1,
+    "titre": "Généricité multiple",
+    "contenu": "public class Entry<K, V> {\nprivate final K key;\nprivate final V value;\npublic Entry(K key, V value) {\nthis.key = key;\nthis.value = value;\n}\npublic K getKey() {\nreturn key;\n}\npublic V getValue() {\nreturn value;\n}\n@Override\npublic String toString() {\nreturn \"(\" + key + \",\" + value +\n\")\";\n}\n}\n21",
+    "ordre": 32,
+    "created_at": "2026-02-20T23:49:05.247Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 27,
+  "fields": {
+    "lecon": 1,
+    "titre": "Utilisation",
+    "contenu": "Entry<String, String> grade = new Entry<>(\"Albert\", \"B\");\nEntry<String, Integer> mark = new Entry<>(\"Albert\", 16);\nSystem.out.println(\"grade:\" + grade);\nSystem.out.println(\"mark:\" + mark);",
+    "ordre": 33,
+    "created_at": "2026-02-20T23:49:05.250Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 28,
+  "fields": {
+    "lecon": 1,
+    "titre": "Généricité restreinte",
+    "contenu": "22\nLe mot-clé extends permet de restreindre le type générique à une\nclasse ou une interface donnée, ainsi que tous ses sous-types. Cela\ngarantit que le type générique T doit hériter d'une classe ou\nimplémenter une interface spécifique.",
+    "ordre": 35,
+    "created_at": "2026-02-20T23:49:05.254Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 29,
+  "fields": {
+    "lecon": 1,
+    "titre": "2. Utilisation dans une collection imbriquée :",
+    "contenu": "Jokers (?)\nLes wildcards permettent de travailler avec des types inconnus.\n? – Type inconnu\nList<?> listeInconnue = new ArrayList <String >();\nEntry<?, ?> randomNotation = new Entry<String, Double>(\"Albert\", 0.7);\n24\n\nJokers (?)\n<? extends T> – Borne supérieure\nPermet de traiter des sous-types de T.\n25\n\nJokers (?)\n26\n<? super T> – Borne inférieure\nPermet d’ajouter des objets de type T de ses sous-types\nde T.",
+    "ordre": 37,
+    "created_at": "2026-02-20T23:49:05.257Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 30,
+  "fields": {
+    "lecon": 1,
+    "titre": "Java fournit une hiérarchie riche de structures de données génériques",
+    "contenu": "Interface Collection<T>\nList<T> : Liste ordonnée\nSet<T> : Ensemble (sans doublons)\nQueue<T> : File FIFO ou LIFO\nInterface Map<K,V>\nHashMap<K,V> : Accès rapide, pas d'ordre garanti\nTreeMap<K,V> : Trié selon l'ordre naturel\nLinkedHashMap<K,V> : Ordre d'insertion préservé\n27",
+    "ordre": 38,
+    "created_at": "2026-02-20T23:49:05.260Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 31,
+  "fields": {
+    "lecon": 1,
+    "titre": "Interface Description Implémentations Courantes Ordre Doublons",
+    "contenu": "List Séquence ordonnée ArrayList, LinkedList Insertion ✅ Oui\nSet Collection sans doublons HashSet, LinkedHashSet, TreeSetNon garanti\n(sauf LinkedHashSet/TreeSet)❌ Non\nQueue Gestion FIFO/LIFO LinkedList, PriorityQueue Dépend ✅ Oui\nMapPaires clé-valeur (clés\nuniques)HashMap, LinkedHashMap, TreeMapNon garanti\n(sauf LinkedHashMap/TreeMap)Clés ❌,\nValeurs ✅",
+    "ordre": 41,
+    "created_at": "2026-02-20T23:49:05.263Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 32,
+  "fields": {
+    "lecon": 1,
+    "titre": "Methode Description",
+    "contenu": "add(Object) Cette méthode est utilisée pour ajouter un objet à la collection.\naddAll(Collection c) Cette méthode ajoute tous les éléments de la collection donnée à cette collection.\nclear() Cette méthode supprime tous les éléments de cette collection.\ncontains(Object o) Cette méthode renvoie true si la collection contient l’élément spécifié.\ncontainsAll(Collection",
+    "ordre": 44,
+    "created_at": "2026-02-20T23:49:05.267Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 33,
+  "fields": {
+    "lecon": 1,
+    "titre": "c)Cette méthode renvoie true si la collection contient tous les éléments de la collection donnée.",
+    "contenu": "equals(Object o) Cette méthode compare l’objet spécifié avec cette collection pour l’égalité.\nhashCode() Cette méthode est utilisée pour retourner la valeur du code de hachage de cette collection.\nisEmpty() Cette méthode renvoie true si cette collection ne contient aucun élément.\niterator() Cette méthode renvoie un itérateur sur les éléments de cette collection.\nparallelStream() Cette méthode retourne un flux parallèle avec cette collection comme source.\nremove(Object o)Cette méthode est utilisée pour supprimer l’objet donné de la collection. S’il existe des valeurs en double, cette méthode\nsupprime la première occurrence de l’objet.\nremoveAll(Collection",
+    "ordre": 45,
+    "created_at": "2026-02-20T23:49:05.270Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 34,
+  "fields": {
+    "lecon": 1,
+    "titre": "c)Cette méthode est utilisée pour supprimer de la collection tous les objets mentionnés dans la collection donnée.",
+    "contenu": "removeIf(Predicate\nfilter)Cette méthode est utilisée pour supprimer tous les éléments de cette collection qui satisfont le prédicat donné.\nretainAll(Collection c)Cette méthode est utilisée pour conserver uniquement les éléments de cette collection qui sont contenus dans la\ncollection spécifiée.\nsize() Cette méthode est utilisée pour renvoyer le nombre d’éléments de la collection.\nspliterator() Cette méthode est utilisée pour créer un séparateur sur les éléments de cette collection.\nstream() Cette méthode est utilisée pour retourner un flux séquentiel avec cette collection comme source.\ntoArray() Cette méthode est utilisée pour retourner un tableau contenant tous les éléments de cette collection.\n32\n\nInterfaces qui étendent l’interface des collections Java\n33Le framework de collection contient plusieurs interfaces où chaque\ninterface est utilisée pour stocker un type spécifique de données. Voici\nles interfaces présentes dans le framework.",
+    "ordre": 46,
+    "created_at": "2026-02-20T23:49:05.274Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 35,
+  "fields": {
+    "lecon": 1,
+    "titre": "Interfaces iterable",
+    "contenu": "34Il s’agit de l’interface racine de l’ensemble du cadre de collecte. L’interface de\ncollection étend l’interface itérable. Par conséquent, toutes les interfaces et\nclasses implémentent cette interface. La fonctionnalité principale de cette\ninterface est de fournir un itérateur pour les collections. Par conséquent, cette\ninterface ne contient qu’une seule méthode abstraite qui est l’itérateur. Il",
+    "ordre": 47,
+    "created_at": "2026-02-20T23:49:05.280Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 36,
+  "fields": {
+    "lecon": 1,
+    "titre": "renvoie la fonction",
+    "contenu": "Iterator iterator();\nexemple\nList<String> fruits = List.of(\"Pomme\", \"Banane\", \"Orange\");\nIterator<String> it = fruits.iterator();\nwhile(it.hasNext()) {\nSystem.out.println(it.next());\n}\n\nInterface Collection (hérite de Iterable)\n35Cette interfa ce étend l’interface itérable et est implémentée par toutes les\nclasses de l’infrastructure de collection. Cette interface contient toutes\nles méthodes de base de chaque collection, comme l’ajout des données\ndans la collection, la suppression des données, l’effacement des données,\netc. Toutes ces méthodes sont implémentées dans cette interface car\nelles sont implémentées par toutes les classes, quel que soit leur style\nd’implémentation. De plus, le fait d’avoir ces méthodes dans cette",
+    "ordre": 48,
+    "created_at": "2026-02-20T23:49:05.283Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 37,
+  "fields": {
+    "lecon": 1,
+    "titre": "interface garantit que les noms des méthodes sont universels pour toutes",
+    "contenu": "les collectio ns. Par conséquent, en bref, nous pouvons dire que cette",
+    "ordre": 49,
+    "created_at": "2026-02-20T23:49:05.287Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 38,
+  "fields": {
+    "lecon": 1,
+    "titre": "interface construit une base sur laquelle les classes de collection sont",
+    "contenu": "implémentées.\n\nInterface Collection (hérite de Iterable)\n36Rôle : Opérations de base pour toutes les collections.\nMéthodes principales :\nadd(), remove(), clear()\nsize(), isEmpty()\ncontains(), toArray()\nExemple\nCollection <Integer> nombres = new ArrayList <>();\nnombres .add(10);\nnombres .add(20);\nSystem.out.println(\"Taille: \" + nombres .size()); // 2\nnombres .remove(10);\nSystem.out.println(\"Contient 20? \" + nombres .contains(20)); // true\n\nInterface List (hérite de Collection)\n37Il s’agit d’une interface enfant de l’interface de collection. Cette interface est dédiée aux données\nde type liste dans laquelle on peut stocker toutes les collections ordonnées des objets. Cela\npermet également d’y inclure des données en double. Cette interface de liste est implémentée par\ndiverses classes telles que ArrayList, Vector, Stack, etc. Comme toutes les sous-classes\nimplémentent la liste, nous pouvons instancier un objet list avec n’importe laquelle de ces\nclasses.\nCaractéristiques :",
+    "ordre": 50,
+    "created_at": "2026-02-20T23:49:05.290Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 39,
+  "fields": {
+    "lecon": 1,
+    "titre": "Accès par indexExemple",
+    "contenu": "List <String > villes = new ArrayList <>();\nvilles .add (\"Paris\" );\nvilles .add (\"Lyon\" );\nvilles .add (\"Paris\" ); // Doublon autorisé\n// Accès par index\nSystem .out .println (villes .get (1)); // Lyon\n// Parcours avec forEach (depuis Iterable)\nvilles .forEach (System .out::println );",
+    "ordre": 51,
+    "created_at": "2026-02-20T23:49:05.294Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 40,
+  "fields": {
+    "lecon": 1,
+    "titre": "Autres interfaces importantes",
+    "contenu": "38Interface Set (hérite de Collection)\nSet < String > uniques = new HashSet <>();\nuniques .add (\"A\" );\nuniques .add (\"B\" );\nuniques .add (\"A\" ); // Ignoré System .out .println (uniques ); // [A, B]\nInterface Queue (hérite de Collection)\nQueue < String > file = new LinkedList <>();\nfile .offer (\"Client1\" );\nfile .offer (\"Client2\" );\nSystem .out .println (file .poll ()); // Client1\n\nInterface Map (indépendante)\n39Une Map est une structure de données qui prend en charge la paire clé-valeur\npour le mappage des données. Cette interface ne prend pas en charge les clés\nen double, car la même clé ne peut pas avoir plusieurs mappages, mais elle\nautorise les valeurs en double dans différentes clés. Une Map est utile s’il y a\ndes données et que l’on souhaite effectuer des opérations sur la base de la clé.\nCette interface Map est implémentée par diverses classes telles que HashMap,\nTreeMap, etc. Comme toutes les sous-classes implémentent Map, nous\npouvons instancier un objet Map avec n'importe laquelle de ces classes.\nMap<Integer, String> map = new HashMap<>();\nmap.put(1, \"Un\");\nmap.put(2, \"Deux\");\nSystem.out.println(map.get(1)); // Un x\n\nHashMap.\n40HashMap fournit l’implémentation de base de l’interface Map de\nJava. Il stocke les données par paires (clé, valeur). Pour accéder à\nune valeur dans une HashMap, il faut connaître sa clé. HashMap\nutilise une technique appelée Hashing. Le hachage est une\ntechnique de conversion d’une grande chaîne en une petite",
+    "ordre": 52,
+    "created_at": "2026-02-20T23:49:05.297Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 41,
+  "fields": {
+    "lecon": 1,
+    "titre": "chaîne qui représente la même chaîne afin que les opérations",
+    "contenu": "d’indexation et de recherche soient plus rapides. HashSet utilise\négalement HashMap en interne.\n\nExemple\n41import java.util.*;\nimport java.util.stream.*;\npublic class CollectionMethodsDemo {\npublic static void main( String[] args) {\n// Création et ajouts\nCollection < String> coll = new ArrayList <>();\ncoll.add(\"Java\");\ncoll.addAll( List.of(\"Python\" , \"C++\"));\n// Affichage\nSystem.out.println(\"Taille: \" + coll.size()); // 3\nSystem.out.println(\"Contient Java? \" + coll.contains(\"Java\")); // true\n// Suppression\ncoll.remove(\"C++\"); coll.removeIf (s -> s.startsWith (\"P\"));\nSystem.out.println(coll); // [Java]\n// Conversion\nObject[] arr = coll.toArray();\nSystem.out.println( Arrays.toString(arr)); // [Java]\n}\n}\n\nThreads\n42Un thread est une unité d'exécution au sein d’un programme. Il\npermet à un programme de s'exécuter simultanément sur\nplusieurs tâches (ou sous-tâches). Cela rend l'application plus\nréactive et efficace, notamment dans les cas où certaines\nopérations prennent du temps (ex : lecture/écriture sur disque,\nrequêtes réseau).",
+    "ordre": 53,
+    "created_at": "2026-02-20T23:49:05.301Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 42,
+  "fields": {
+    "lecon": 1,
+    "titre": "il existe deux façons de créer un thread en Java",
+    "contenu": "Méthode 1 : En étendant la classe Thread\n:\nPoints importants :\nLa méthode run() contient le code à exécuter.\nPour démarrer le thread, on appelle start() (et non\npas run() ).\ngetName() renvoie le nom du thread.",
+    "ordre": 55,
+    "created_at": "2026-02-20T23:49:05.304Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 43,
+  "fields": {
+    "lecon": 1,
+    "titre": "Créer des Threads",
+    "contenu": ":\nPoints importants :\nOn crée une instance de Runnable , puis on la passe à un objet Thread .\nPermet de respecter le principe d’héritage multiple (puisque Java ne permet pas d’étendre plusieurs\nclasses).\nUtile pour séparer la logique de traitement de la gestion du thread.Méthode 2 : En implémentant l'interface Runnable\n\nExemple Introductif : Plusieurs Threads Simultanés\nRésultat attendu :\nLes messages s'afficheront en parallèle selon l’ordonnancement du système, par exemple :\n1 bonjour bonsoir bonjour bonsoir bonjour bonjour ...\n\nInterruptiond’unThread\nComment interrompre un thread ?\nOn utilise la méthode interrupt() pour signaler à un thread qu’il doit se terminer.\nExemple :",
+    "ordre": 56,
+    "created_at": "2026-02-20T23:49:05.308Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 44,
+  "fields": {
+    "lecon": 1,
+    "titre": "Threads Démons",
+    "contenu": "Un thread démon est un thread qui ne bloque pas la fin du programme. Si tous les threads restants sont\ndes démons, le programme se termine automatiquement.\n\nCycle de vie d'un thread en Java :\n48",
+    "ordre": 57,
+    "created_at": "2026-02-20T23:49:05.311Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 45,
+  "fields": {
+    "lecon": 1,
+    "titre": "Coordination entre Threads",
+    "contenu": "49Lorsque plusieurs threads accèdent à une ressource partagée, il faut synchroniser leur\naccès pour éviter des comportements incohérents.",
+    "ordre": 58,
+    "created_at": "2026-02-20T23:49:05.317Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 46,
+  "fields": {
+    "lecon": 1,
+    "titre": "Coordination entre Threads",
+    "contenu": "50\nUtilisation de wait() et\nnotifyAll()\n\nÉtats d’un Thread",
+    "ordre": 59,
+    "created_at": "2026-02-20T23:49:05.321Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 47,
+  "fields": {
+    "lecon": 1,
+    "titre": "État Description",
+    "contenu": "NewLe thread a été créé mais n’a pas encore été lancé\n(start()non appelé).\nRunnable Le thread est prêt à être exécuté.\nRunning Le thread est en cours d’exécution.\nBlocked Le thread attend un verrou ou une ressource.\nWaiting Le thread attend activement une notification (wait()).\nTimed Waiting Le thread attend pendant un délai (sleep()).\nTerminated Le thread a terminé son exécution.\n\nles différents états du cycle de vie d'un thread en Java :",
+    "ordre": 60,
+    "created_at": "2026-02-20T23:49:05.324Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 48,
+  "fields": {
+    "lecon": 1,
+    "titre": "2.Runnable : Lorsque la méthode start() est appelée sur le thread et",
+    "contenu": "qu'il est pris en charge par l'ordonnanceur de threads (thread\nscheduler).",
+    "ordre": 61,
+    "created_at": "2026-02-20T23:49:05.327Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 49,
+  "fields": {
+    "lecon": 1,
+    "titre": "3.Running : Lorsque le Cas A se produit, c'est-à-dire que",
+    "contenu": "l'ordonnanceur a sélectionné ce thread pour passer de l'état\nexécutable à l'état d'exécution.",
+    "ordre": 62,
+    "created_at": "2026-02-20T23:49:05.331Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 50,
+  "fields": {
+    "lecon": 1,
+    "titre": "4.Blocked : Lorsque le Cas B se produit, c'est-à-dire que",
+    "contenu": "l'ordonnanceur a décidé de ne pas permettre au thread de passer\nde l'état exécutable à l'état d'exécution.",
+    "ordre": 63,
+    "created_at": "2026-02-20T23:49:05.334Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 51,
+  "fields": {
+    "lecon": 1,
+    "titre": "531.Multitraitemen t : Le m ul titâche basé sur les processus est un",
+    "contenu": "proc essus lourd qui occupe différents espaces d’adressage en\nm ém oire. Par conséquent, lors du passage d’un processus à\nun a ut re, il faudra un certain tem ps, m êm e s’il est très petit, ce\nqui entraînera un décalage dû au changem ent. Cela se produit",
+    "ordre": 66,
+    "created_at": "2026-02-20T23:49:05.338Z"
+  }
+},
+{
+  "model": "api.notion",
+  "pk": 52,
+  "fields": {
+    "lecon": 1,
+    "titre": "2.Multith reading : Le m ul titâche basé sur les threads est un",
+    "contenu": "proc essus léger qui occupe le m êm e espace d’adressage. Par\nconsé que nt, le coût de la com m unication sera très faible.",
+    "ordre": 68,
+    "created_at": "2026-02-20T23:49:05.341Z"
+  }
+},
+{
+  "model": "api.exercice",
+  "pk": 4,
+  "fields": {
+    "lecon": 1,
+    "notion": 1,
+    "type_exercice": "qcm",
+    "difficulte": "difficile",
+    "question": "Quelle est la principale idée derrière l''encapsulation' avec les mots-clés `private` et `public` pour une donnée comme l'âge (`age`) ?",
+    "choix": [
+      {
+        "texte": "Rendre l'âge visible et modifiable par n'importe quelle partie du programme sans restriction.",
+        "correct": false
+      },
+      {
+        "texte": "Cacher les détails internes (comme l'âge) et fournir des méthodes publiques ('getAge', 'setAge') pour contrôler comment on y accède ou le modifie.",
+        "correct": true
+      },
+      {
+        "texte": "Empêcher complètement toute modification de l'âge une fois qu'il est défini.",
+        "correct": false
+      },
+      {
+        "texte": "Utiliser l'âge uniquement pour des calculs secrets que personne d'autre ne peut voir.",
+        "correct": false
+      }
+    ],
+    "explication": "L'encapsulation est un principe important qui consiste à 'enfermer' les données d'un objet (comme l'âge) et à ne les rendre accessibles que par des méthodes spécifiques. En utilisant `private`, on cache la donnée. Les méthodes `public` (comme `getAge` pour lire et `setAge` pour modifier) sont comme des 'portes contrôlées' pour interagir avec cette donnée. Cela permet de s'assurer que l'âge est toujours valide et d'éviter que n'importe quelle partie du programme ne le modifie n'importe comment.",
+    "created_at": "2026-02-20T23:58:03.483Z"
+  }
+},
+{
+  "model": "api.exercice",
+  "pk": 1,
+  "fields": {
+    "lecon": 1,
+    "notion": 1,
+    "type_exercice": "qcm",
+    "difficulte": "facile",
+    "question": "D'après le texte, qu'est-ce qu'une 'classe' en programmation Java ?",
+    "choix": [
+      {
+        "texte": "Une action que l'ordinateur peut faire.",
+        "correct": false
+      },
+      {
+        "texte": "Un plan ou un modèle pour créer des objets.",
+        "correct": true
+      },
+      {
+        "texte": "Une erreur dans le programme.",
+        "correct": false
+      },
+      {
+        "texte": "Un type de donnée pour les nombres uniquement.",
+        "correct": false
+      }
+    ],
+    "explication": "Le texte montre 'public class Animal' comme un exemple. Une classe est comme un plan de construction ou un moule qui sert à fabriquer des 'objets' (comme 'monChien'). Elle définit ce que ces objets auront comme caractéristiques et ce qu'ils pourront faire.",
+    "created_at": "2026-02-20T23:58:03.361Z"
+  }
+},
+{
+  "model": "api.exercice",
+  "pk": 3,
+  "fields": {
+    "lecon": 1,
+    "notion": 1,
+    "type_exercice": "qcm",
+    "difficulte": "facile",
+    "question": "Selon le texte, pourquoi utiliser les 'expressions Lambda' en Java ?",
+    "choix": [
+      {
+        "texte": "Pour rendre le code plus long et plus difficile à lire.",
+        "correct": false
+      },
+      {
+        "texte": "Pour créer des dessins complexes à l'écran.",
+        "correct": false
+      },
+      {
+        "texte": "Pour écrire du code plus court, plus concis et plus expressif, surtout pour les fonctions simples.",
+        "correct": true
+      },
+      {
+        "texte": "Pour effacer toutes les erreurs du programme automatiquement.",
+        "correct": false
+      }
+    ],
+    "explication": "Le texte mentionne que les expressions Lambda ont été introduites pour 'simplifier la verbosité' et 'écrire un code concis, de style fonctionnel'. En gros, elles permettent de faire certaines choses avec moins de lignes de code, rendant le programme plus rapide à écrire et parfois plus clair quand il s'agit de petites fonctions.",
+    "created_at": "2026-02-20T23:58:03.465Z"
+  }
+},
+{
+  "model": "api.exercice",
+  "pk": 2,
+  "fields": {
+    "lecon": 1,
+    "notion": 1,
+    "type_exercice": "qcm",
+    "difficulte": "moyen",
+    "question": "Quand le texte parle d''héritage' avec 'class Chien extends Animal', qu'est-ce que cela signifie pour la classe 'Chien' ?",
+    "choix": [
+      {
+        "texte": "Le Chien ne peut rien faire des actions de l'Animal.",
+        "correct": false
+      },
+      {
+        "texte": "Le Chien est un type d'Animal et peut utiliser ses caractéristiques et actions, en plus des siennes.",
+        "correct": true
+      },
+      {
+        "texte": "Le Chien remplace complètement l'Animal et n'a plus aucun lien avec lui.",
+        "correct": false
+      },
+      {
+        "texte": "Seul l'Animal peut avoir des méthodes, pas le Chien.",
+        "correct": false
+      }
+    ],
+    "explication": "L'héritage, symbolisé par 'extends', est un peu comme si un enfant héritait des traits de ses parents. Ici, la classe 'Chien' hérite des caractéristiques et des comportements de la classe 'Animal'. Cela signifie qu'un 'Chien' est un 'Animal' particulier, qui peut faire tout ce qu'un 'Animal' peut faire, et aussi avoir ses propres spécificités (comme aboyer au lieu de simplement crier 'Son générique').",
+    "created_at": "2026-02-20T23:58:03.456Z"
+  }
+},
+{
+  "model": "api.exercice",
+  "pk": 5,
+  "fields": {
+    "lecon": 1,
+    "notion": 1,
+    "type_exercice": "qcm",
+    "difficulte": "moyen",
+    "question": "D'après le texte, qu'est-ce qu'une 'interface' en Java ?",
+    "choix": [
+      {
+        "texte": "Une classe qui peut être instanciée (créée) directement.",
+        "correct": false
+      },
+      {
+        "texte": "Un document qui ne contient que des erreurs de programmation.",
+        "correct": false
+      },
+      {
+        "texte": "Un contrat qui définit un ensemble de méthodes abstraites que les classes doivent implémenter.",
+        "correct": true
+      },
+      {
+        "texte": "Une méthode spéciale pour afficher du texte à l'écran.",
+        "correct": false
+      }
+    ],
+    "explication": "Le texte dit qu'une interface est un 'contrat' qui définit des 'méthodes abstraites'. Cela veut dire qu'elle liste des actions à faire (comme 'respirer' pour 'Mammifère') mais ne dit pas comment les faire. Les classes qui 'implémentent' cette interface s'engagent à fournir le code pour réaliser ces actions. C'est comme un cahier des charges : il dit 'quoi faire', mais pas 'comment le faire'.",
+    "created_at": "2026-02-20T23:58:03.492Z"
+  }
+}
+]
