@@ -223,6 +223,11 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://l1tello.samboutique.eu',            # URL de Hostinger
+    'https://l1tello-production.up.railway.app',  # URL de Railway
+]
+
 # Limiter la taille des uploads (20 Mo max)
 DATA_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20 Mo
 FILE_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024
