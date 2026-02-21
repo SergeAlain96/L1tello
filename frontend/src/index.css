@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* ═══ Smooth scroll & base ═══ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ═══ Custom scrollbar ═══ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #a5b4fc; }
+
+/* ═══ Gradient text ═══ */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══ Glassmorphism ═══ */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+.glass-dark {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* ═══ Floating keyframes ═══ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(1deg); }
+  66% { transform: translateY(6px) rotate(-1deg); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+}
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(4px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(-2deg); }
+}
+.animate-float         { animation: float 6s ease-in-out infinite; }
+.animate-float-slow    { animation: float-slow 8s ease-in-out infinite; }
+.animate-float-delayed { animation: float-delayed 7s ease-in-out 1s infinite; }
+
+/* ═══ Gradient shift ═══ */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* ═══ Pulse glow ═══ */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.2); }
+  50% { box-shadow: 0 0 35px rgba(99, 102, 241, 0.5); }
+}
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+/* ═══ Shimmer ═══ */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* ═══ Classroom Background ═══ */
+.bg-classroom {
+  position: relative;
+  background-image: url('/classroom-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.bg-classroom::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(241, 245, 249, 0.88);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 0;
+}
+.bg-classroom > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Auth pages: darker overlay */
+.bg-classroom-dark {
+  position: relative;
+  background-image: url('/classroom-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.bg-classroom-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 0;
+}
+.bg-classroom-dark > * {
+  position: relative;
+  z-index: 1;
+}

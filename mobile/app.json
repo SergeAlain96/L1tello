@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "L1tello",
+    "slug": "l1tello",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1e1b4b"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.l1tello.mobile"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1e1b4b"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.l1tello.mobile"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

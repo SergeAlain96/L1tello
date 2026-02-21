@@ -1,0 +1,54 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# Django
+db.sqlite3
+media/
+*.log
+staticfiles/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vite / Frontend build
+frontend/dist/
+frontend/.vite/
+
+# Mobile / Expo
+mobile/.expo/
+mobile/dist/
+mobile/android/
+mobile/ios/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Misc
+.expo/
+.vite/
+*.pdf
+package-lock.json

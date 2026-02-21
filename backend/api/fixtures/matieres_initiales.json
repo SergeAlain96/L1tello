@@ -1,0 +1,14 @@
+[
+  {"model": "api.matiere", "pk": 1, "fields": {"nom": "Mathématiques", "description": "Algèbre, géométrie, arithmétique, probabilités et statistiques.", "icone": "🔢", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 2, "fields": {"nom": "Français", "description": "Grammaire, conjugaison, orthographe, rédaction et littérature.", "icone": "📖", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 3, "fields": {"nom": "Anglais", "description": "Vocabulaire, grammaire anglaise, compréhension et expression.", "icone": "🇬🇧", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 4, "fields": {"nom": "Physique-Chimie", "description": "Mécanique, électricité, optique, chimie organique et inorganique.", "icone": "⚗️", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 5, "fields": {"nom": "Sciences de la Vie et de la Terre", "description": "Biologie, géologie, écologie et environnement.", "icone": "🌿", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 6, "fields": {"nom": "Histoire", "description": "Histoire ancienne, médiévale, moderne et contemporaine.", "icone": "🏛️", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 7, "fields": {"nom": "Géographie", "description": "Cartographie, géographie physique, humaine et économique.", "icone": "🌍", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 8, "fields": {"nom": "Philosophie", "description": "Éthique, logique, métaphysique et épistémologie.", "icone": "🤔", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 9, "fields": {"nom": "Informatique", "description": "Algorithmique, programmation, bases de données et réseaux.", "icone": "💻", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 10, "fields": {"nom": "Éducation Physique et Sportive", "description": "Activités sportives, santé et bien-être.", "icone": "⚽", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 11, "fields": {"nom": "Espagnol", "description": "Vocabulaire, grammaire espagnole, compréhension et expression.", "icone": "🇪🇸", "created_at": "2026-01-01T00:00:00Z"}},
+  {"model": "api.matiere", "pk": 12, "fields": {"nom": "Éducation Civique", "description": "Citoyenneté, droits, devoirs et institutions.", "icone": "⚖️", "created_at": "2026-01-01T00:00:00Z"}}
+]
