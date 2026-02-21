@@ -34,7 +34,13 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-tb##o7c&@ke592
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('true', '1', 'yes')
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = [
+    'l1tello-production.up.railway.app', # Ajoutez le domaine exact sans http://
+    '.railway.app',                      # Laissez le wildcard (avec le point devant)
+    'l1tello.samboutique.eu',            # Enlevez le https:// ici aussi !
+    '127.0.0.1',
+    'localhost'
+]
 # En production Railway, définir : DJANGO_ALLOWED_HOSTS=ton-app.railway.app,localhost
 
 
@@ -231,3 +237,8 @@ CSRF_TRUSTED_ORIGINS = [
 # Limiter la taille des uploads (20 Mo max)
 DATA_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20 Mo
 FILE_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024
+
+# Dire à Django d'utiliser l'en-tête X-Forwarded-Host pour ALLOWED_HOSTS
+USE_X_FORWARDED_HOST = True
+# Dire à Django qu'il est derrière un proxy sécurisé
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
