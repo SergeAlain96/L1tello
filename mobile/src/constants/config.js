@@ -20,8 +20,8 @@ const getBaseURL = () => {
     // iOS simulator ou web : localhost fonctionne
     return 'http://localhost:8001/api';
   }
-  // Production (à configurer plus tard)
-  return 'https://api.l1tello.com/api';
+  // Production
+  return 'https://l1tello-production.up.railway.app/api';
 };
 
 export const API_CONFIG = {
