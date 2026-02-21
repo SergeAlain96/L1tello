@@ -35,7 +35,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-tb##o7c&@ke592
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('true', '1', 'yes')
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
-# En production Railway, définir : DJANGO_ALLOWED_HOSTS=ton-app.railway.app,localhost
+# En production Railway : DJANGO_ALLOWED_HOSTS=l1tello-production.up.railway.app,localhost
 
 
 # Application definition
@@ -171,9 +171,9 @@ AUTH_USER_MODEL = 'api.Utilisateur'
 # ──── CORS ────
 CORS_ALLOWED_ORIGINS = [
     # Production
+    'https://l1tello-production.up.railway.app',  # Backend Railway (self)
     'https://l1tello.com',           # Ton domaine Hostinger (à adapter)
     'https://www.l1tello.com',       # Ton domaine Hostinger (à adapter)
-    'https://l1tello-production.up.railway.app',  # Backend Railway
     # Développement local
     'http://localhost:5173',
     'http://localhost:5174',
