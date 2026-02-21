@@ -1,8 +1,5 @@
 [phases.setup]
-nixPkgs = ["python312", "gcc", "pkg-config", "libmysqlclient"]
-
-[phases.install]
-cmds = ["pip install -r requirements.txt"]
+aptPkgs = ["libmysqlclient-dev", "pkg-config", "gcc"]
 
 [start]
 cmd = "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn core.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
