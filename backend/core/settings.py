@@ -171,9 +171,9 @@ AUTH_USER_MODEL = 'api.Utilisateur'
 # ──── CORS ────
 CORS_ALLOWED_ORIGINS = [
     # Production
-    'https://l1tello.com',           # Ton domaine Hostinger (à adapter)
-    'https://www.l1tello.com',       # Ton domaine Hostinger (à adapter)
-    'https://l1tello-production.up.railway.app',  # Backend Railway (pour admin)
+    'https://l1tello.samboutique.eu',
+    'http://l1tello.samboutique.eu',
+    'https://l1tello-production.up.railway.app',
     # Développement local
     'http://localhost:5173',
     'http://localhost:5174',
