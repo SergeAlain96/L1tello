@@ -111,26 +111,11 @@ export default function RevisionPage() {
     );
   }
 
-  // Wrapper responsive global
-  return (
-    <div className="px-1 sm:px-2 md:px-0">
-      {/* ...existing code... */}
-      {(() => {
-        // ...toute la logique de rendu existante...
-        // Remplacer tous les retours JSX principaux par leur version enveloppée dans ce div
-        // Adapter la grille des résultats ci-dessous
-
-  const fb = profil?.feedback || {};
-  const maitrise = profil?.maitrise || [];
-
-  // ════════════════════════════════════════
-  // Mode QUIZ adaptatif terminé
-  // ════════════════════════════════════════
   if (mode === 'quiz' && finished) {
+    // ...existing code pour quiz terminé...
     const total = results.length;
     const ok = results.filter((r) => r.est_correcte).length;
     const taux = total > 0 ? Math.round((ok / total) * 100) : 0;
-
     return (
       <motion.div className="max-w-2xl mx-auto space-y-6" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: 'spring', duration: 0.6 }}>
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 text-center">
@@ -138,7 +123,6 @@ export default function RevisionPage() {
             <span className={taux >= 80 ? 'text-amber-500' : taux >= 50 ? 'text-blue-500' : 'text-indigo-500'}>{taux >= 80 ? <Trophy size={56} /> : taux >= 50 ? <TrendingUp size={56} /> : <TrendingUp size={56} />}</span>
           </motion.span>
           <h2 className="text-2xl font-bold text-gray-900">Révision terminée !</h2>
-
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div className="bg-blue-50 rounded-xl p-4">
               <p className="text-2xl font-bold text-blue-700">{total}</p>
@@ -148,12 +132,11 @@ export default function RevisionPage() {
               <p className="text-2xl font-bold text-green-700">{ok}</p>
               <p className="text-xs text-green-500">Correctes</p>
             </div>
-            <div className={`rounded-xl p-4 ${taux >= 50 ? 'bg-green-50' : 'bg-red-50'}`}>
+            <div className={`rounded-xl p-4 ${taux >= 50 ? 'bg-green-50' : 'bg-red-50'}`}> 
               <p className={`text-2xl font-bold ${taux >= 50 ? 'text-green-700' : 'text-red-700'}`}>{taux}%</p>
               <p className={`text-xs ${taux >= 50 ? 'text-green-500' : 'text-red-500'}`}>Réussite</p>
             </div>
           </div>
-
           <div className="mt-6 text-left space-y-2">
             {results.map((r, i) => (
               <div
@@ -165,7 +148,89 @@ export default function RevisionPage() {
               </div>
             ))}
           </div>
+          <div className="flex gap-3 mt-6 justify-center">
+            <button
+              onClick={() => { setMode('profil'); setFinished(false); window.location.reload(); }}
+              className="px-5 py-2.5 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
+            >
+              Voir mon profil mis à jour
+            </button>
+            <Link
+              to="/dashboard"
+              className="px-5 py-2.5 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition"
+            >
+              Dashboard
+            </Link>
+          </div>
+        </div>
+      </motion.div>
+    );
+  }
 
+  if (mode === 'quiz' && currentExo) {
+    // ...existing code pour quiz en cours...
+    const choix = currentExo.choix || [];
+    const progress = ((currentIndex + (submitted ? 1 : 0)) / exercices.length) * 100;
+    return (
+      <motion.div className="max-w-2xl mx-auto space-y-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
+        {/* ...existing code pour quiz en cours... */}
+      </motion.div>
+    );
+  }
+
+  // Mode PROFIL (écran par défaut)
+  return (
+    <div className="px-1 sm:px-2 md:px-0">
+      <motion.div className="space-y-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
+        {/* ...existing code pour profil... */}
+      </motion.div>
+    </div>
+  );
+        // Adapter la grille des résultats ci-dessous
+
+  const fb = profil?.feedback || {};
+  const maitrise = profil?.maitrise || [];
+
+  // ════════════════════════════════════════
+  // Mode QUIZ adaptatif terminé
+  // ════════════════════════════════════════
+  if (mode === 'quiz' && finished) {
+    // Déclarer les variables avant le return JSX
+    const total = results.length;
+    const ok = results.filter((r) => r.est_correcte).length;
+    const taux = total > 0 ? Math.round((ok / total) * 100) : 0;
+    return (
+      <motion.div className="max-w-2xl mx-auto space-y-6" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: 'spring', duration: 0.6 }}>
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 text-center">
+          <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', bounce: 0.5, delay: 0.2 }} className="block mb-4 flex justify-center">
+            <span className={taux >= 80 ? 'text-amber-500' : taux >= 50 ? 'text-blue-500' : 'text-indigo-500'}>{taux >= 80 ? <Trophy size={56} /> : taux >= 50 ? <TrendingUp size={56} /> : <TrendingUp size={56} />}</span>
+          </motion.span>
+          <h2 className="text-2xl font-bold text-gray-900">Révision terminée !</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            <div className="bg-blue-50 rounded-xl p-4">
+              <p className="text-2xl font-bold text-blue-700">{total}</p>
+              <p className="text-xs text-blue-500">Exercices</p>
+            </div>
+            <div className="bg-green-50 rounded-xl p-4">
+              <p className="text-2xl font-bold text-green-700">{ok}</p>
+              <p className="text-xs text-green-500">Correctes</p>
+            </div>
+            <div className={`rounded-xl p-4 ${taux >= 50 ? 'bg-green-50' : 'bg-red-50'}`}> 
+              <p className={`text-2xl font-bold ${taux >= 50 ? 'text-green-700' : 'text-red-700'}`}>{taux}%</p>
+              <p className={`text-xs ${taux >= 50 ? 'text-green-500' : 'text-red-500'}`}>Réussite</p>
+            </div>
+          </div>
+          <div className="mt-6 text-left space-y-2">
+            {results.map((r, i) => (
+              <div
+                key={i}
+                className={`flex items-center gap-3 p-3 rounded-lg text-sm ${r.est_correcte ? 'bg-green-50' : 'bg-red-50'}`}
+              >
+                <span className={r.est_correcte ? 'text-emerald-500' : 'text-red-500'}>{r.est_correcte ? <CheckCircle2 size={18} /> : <XCircle size={18} />}</span>
+                <p className="flex-1 text-gray-700 truncate">{r.question}</p>
+              </div>
+            ))}
+          </div>
           <div className="flex gap-3 mt-6 justify-center">
             <button
               onClick={() => { setMode('profil'); setFinished(false); window.location.reload(); }}
