@@ -95,9 +95,9 @@ export default function RegisterPage() {
           {/* Prénom / Nom */}
           <motion.div {...fieldAnim(0)} className="grid grid-cols-2 gap-3">
             <div><label className={labelCls}>Prénom</label>
-              <input type="text" name="first_name" value={form.first_name} onChange={handleChange} className={inputCls} placeholder="Jean" required /></div>
+              <input type="text" name="first_name" value={form.first_name} onChange={handleChange} className={inputCls} placeholder="Serge" required /></div>
             <div><label className={labelCls}>Nom</label>
-              <input type="text" name="last_name" value={form.last_name} onChange={handleChange} className={inputCls} placeholder="Dupont" required /></div>
+              <input type="text" name="last_name" value={form.last_name} onChange={handleChange} className={inputCls} placeholder="KABORE" required /></div>
           </motion.div>
 
           <motion.div {...fieldAnim(1)}>
@@ -105,7 +105,7 @@ export default function RegisterPage() {
             <div className="relative group">
               <span className="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400/60 group-focus-within:text-indigo-400 transition-colors"><User size={18} /></span>
               <input type="text" name="username" value={form.username} onChange={handleChange}
-                className={inputCls + " pl-12"} placeholder="jean_dupont" required />
+                className={inputCls + " pl-12"} placeholder="Serge_Alain" required />
             </div>
           </motion.div>
 
@@ -114,7 +114,7 @@ export default function RegisterPage() {
             <div className="relative group">
               <span className="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400/60 group-focus-within:text-indigo-400 transition-colors"><Mail size={18} /></span>
               <input type="email" name="email" value={form.email} onChange={handleChange}
-                className={inputCls + " pl-12"} placeholder="jean@email.com" required />
+                className={inputCls + " pl-12"} placeholder="serge@email.com" required />
             </div>
           </motion.div>
 
